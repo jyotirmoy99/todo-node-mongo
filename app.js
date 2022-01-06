@@ -11,7 +11,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
 //from .env
-const port = process.env.PORT || 8000;
+let port = process.env.PORT;
+if (port == null || port == "") {
+  port = 8000;
+}
 // const dbUrl = process.env.MONGO_URI;
 
 require("dotenv").config();
